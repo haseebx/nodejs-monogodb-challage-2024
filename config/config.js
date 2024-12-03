@@ -1,0 +1,1 @@
+exports.getMongoDBURL = () => process.env.MONGODB_ATLAS_URI;

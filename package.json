@@ -1,0 +1,31 @@
+{
+  "name": "backend",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "test": "jest",
+    "start": "node app",
+    "dev":"nodemon app",
+    "format": "prettier --write \"./**/*.{js,css,jsx,json}\" --single-quote"
+  },
+  "engines": {
+    "node": "14.x"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "~4.16.1",
+    "express-fileupload": "^1.1.9",
+    "express-validator": "^6.3.1",
+    "http-errors": "~1.6.3",
+    "mongoose": "^5.7.7",
+    "multer": "^1.4.2",
+    "uuid": "^8.3.0"
+  },
+  "devDependencies": {
+    "@types/mongodb": "^3.3.12",
+    "@types/mongoose": "^5.5.34",
+    "jest": "^24.9.0",
+    "nodemon": "^2.0.16",
+    "prettier": "^2.3.2"
+  }
+}
