@@ -31,7 +31,7 @@ mongoose
     useNewUrlParser: true,
   })
   .then(() => {
-    server.listen(port, () => console.log(`Running on localhost : ${port}`)
+    server.listen(port, () => console.log(`http://localhost:${port}`)
     );
   });
 

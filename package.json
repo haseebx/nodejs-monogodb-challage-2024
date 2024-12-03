@@ -5,7 +5,7 @@
   "scripts": {
     "test": "jest",
     "start": "node app",
-    "dev":"nodemon app",
+    "dev": "nodemon app",
     "format": "prettier --write \"./**/*.{js,css,jsx,json}\" --single-quote"
   },
   "engines": {
@@ -17,6 +17,7 @@
     "express-fileupload": "^1.1.9",
     "express-validator": "^6.3.1",
     "http-errors": "~1.6.3",
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "^5.7.7",
     "multer": "^1.4.2",
     "uuid": "^8.3.0"
