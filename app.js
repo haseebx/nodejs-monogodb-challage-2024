@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 const http = require('http');
 
 // Custom Middleware Imports
@@ -16,7 +17,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(cors);
-
+app.use(cookieParser());
 app.use('/api', api);
 app.get('/', (req, res) => res.send('API is running'));
 
