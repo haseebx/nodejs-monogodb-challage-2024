@@ -12,6 +12,7 @@
     "node": "14.x"
   },
   "dependencies": {
+    "aws-sdk": "^2.1692.0",
     "cookie-parser": "^1.4.7",
     "dotenv": "^8.2.0",
     "express": "~4.16.1",
@@ -20,7 +21,7 @@
     "http-errors": "~1.6.3",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^5.7.7",
-    "multer": "^1.4.2",
+    "multer": "^1.4.5-lts.1",
     "uuid": "^8.3.0"
   },
   "devDependencies": {

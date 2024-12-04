@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const user = require('./user');
-const cars = require('./cars');
+const user = require('../controllers/user');
+const cars = require('../controllers/cars');
 
 router.use('/user', user);
 router.use('/cars', cars);
