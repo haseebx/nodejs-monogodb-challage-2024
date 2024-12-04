@@ -23,18 +23,6 @@ app.use(cookieParser());
 // Static files for uploads
 app.use('/uploads', express.static(path.join(__dirname, 'public/uploads')));
 
-// Route for file upload
-// app.post('/upload', upload.single('file'), (req, res) => {
-//   if (!req.file) {
-//     return res.status(400).json({ message: 'File is missing..' });
-//   }
-
-//   const filePath = `/uploads/${req.file.originalname}`;
-//   fs.writeFileSync(`./public${filePath}`, req.file.buffer);
-
-//   return res.status(201).json({ message: 'File uploaded successfully', filePath });
-// });
-
 // Set up API routes
 app.use('/api', api);
 app.get('/', (req, res) => res.send('API is running'));
