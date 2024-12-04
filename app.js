@@ -32,7 +32,7 @@ mongoose
     useNewUrlParser: true,
   })
   .then(() => {
-    server.listen(port, () => console.log(`http://localhost:${port}`)
+    server.listen(port, () => console.log(`http://localhost:${port}/api`)
     );
   });
 
