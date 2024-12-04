@@ -1,11 +1,4 @@
-const AWS = require("aws-sdk");
 const cars = require("../models/cars");
-
-const s3 = new AWS.S3({
-  region: process.env.REGION,
-  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-});
 
 exports.create = async (req, res) => {
   try {
@@ -36,45 +29,18 @@ exports.create = async (req, res) => {
   }
 };
 
-exports.uploadImageToS3 = async (req, res) => {
-  // Check if the file exists in the request
-  const { file } = req;
-  console.log({ file });
-
-  if (!file) {
-    return res.status(400).json({ message: "No file uploaded" });
-  }
-
-  const { originalname, buffer } = file; // Destructure the file object
-  const bucketName = process.env.BUCKET_NAME || "challenge-task";
-  const folderPath = `cars/images`;
-
-  const uploadParams = {
-    Bucket: bucketName, // S3 bucket name
-    Key: `${folderPath}/${req.user.userId}/${Date.now()}_${originalname}`, // Unique path for the file
-    Body: buffer, // File buffer
-    ACL: "public-read", // Make the file publicly accessible
-  };
-
+exports.uploadImage = async (req, res) => {
   try {
-    // Upload file to S3
-    const uploadResult = await s3.upload(uploadParams).promise();
-
-    const url = uploadResult.Location;
-
-    // Log success
-    console.log("File uploaded successfully:", url);
-
-    res.status(200).json({
-      message: "File uploaded successfully",
-      url,
-    });
+    if (!file) {
+      throw new Error("File is missing");
+    }
+    const filePath = `/uploads/${file.originalname}`;
+    await fs.promises.writeFile(`./public${filePath}`, file.buffer);
+    return {
+      data: filePath,
+    };
   } catch (error) {
-    console.error("Error uploading file to S3:", error);
-    res.status(500).json({
-      message: "Failed to upload file to S3",
-      error: error.message,
-    });
+    console.error(error.message);
   }
 };
 
